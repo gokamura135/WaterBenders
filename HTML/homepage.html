@@ -3,20 +3,112 @@
 		<title>
 			Homepage
 		</title>
+		<style type = "text/css">
+			.logout {
+				text-align:right
+			}
+			input{
+				height: 40px; 
+				width: 100%; 
+				background-color:#00FFFF; 
+				color:#000000;
+			}
+		</style>
+		<script type = "text/javascript">
+			
+			var url = window.location;
+			var string = new String(url);
+			var username;
+			var username2;
+			var username3;
+			var username4;
+			var username5;
+			
+			function delineate(str) {
+				if(str.search("username") != -1) {
+					theleft = str.indexOf("=") + 1;
+					return(str.substring(theleft, str.length));
+				}
+				else {
+					return "";
+				}
+			}
+		
+			/*
+			 * Function that is called when the document is ready.
+			 */
+			function initial() {
+				url = window.location;
+				string = new String(url);
+				username = delineate(string);
+				username2 = delineate(string);;
+				username3 = delineate(string);;
+				username4 = delineate(string);;
+				username5 = delineate(string);;
+			
+				// add any functionality and listeners you want here
+				document.getElementById('welcome').innerHTML = "<h1><center>Welcome, " + username + "</center></h1>";
+				document.getElementById('name').value = username;
+				document.getElementById('name2').value = username2;
+				document.getElementById('name3').value = username3;
+				document.getElementById('name4').value = username4;
+				document.getElementById('name5').value = username5;
+			}
+			
+		</script>
 	</head>
-	<body>
-		<div>
-			<h1>
-				<center>
-					Homepage
-				</center>
-			</h1>
+	<body onLoad="initial()">
+		<div class = "logout">
+			<a href = './index.html'>Logout</a>
 		</div>
 		<div>
-			</br>
-			<a href = "./index.html">
-				Back
-			</a>
+			<p id ='welcome'>
+			</p>
+		</div>
+		<div>
+			<table border = 2 width = "100%">
+				<tr height=200px>
+					<td width="50%">
+						<center>
+							[Image?]
+						</center>
+					</td>
+					<td>
+						<table width = 100%>
+							<tr><td><center>
+								<form style="margin-bottom:0;" method="link" action="./myProfile.html"> 
+									<input type = "hidden" id="name" value="" name="username" >
+									<input type="submit" value="My Profile">
+								</form>
+							</center></td></tr>
+							<tr><td><center>
+								<form style="margin-bottom:0;" method="link" action="./history.html"> 
+									<input type = "hidden" id="name2" value="" name="username" >
+									<input type="submit" value="History">
+								</form>
+							</center></td></tr>
+							<tr><td><center>
+								<form style="margin-bottom:0;" method="link" action="./calculator.html"> 
+									<input type = "hidden" id="name3" value="" name="username" >
+									<input type="submit" value="Calculator">
+								</form>
+							</center></td></tr>
+							<tr><td><center>
+								<form style="margin-bottom:0;" method="link" action="./goals.html"> 
+									<input type = "hidden" id="name4" value="" name="username" >
+									<input type="submit" value="Goals">
+								</form>
+							</center></td></tr>
+							<tr><td><center>
+								<form style="margin-bottom:0;" method="link" action="./setReminder.html"> 
+									<input type = "hidden" id="name5" value="" name="username" >
+									<input type="submit" value="Set Reminder">
+								</form>
+							</center></td></tr>
+						</table>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
